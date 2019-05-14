@@ -1,6 +1,7 @@
 <?php
 
 $numberOfIntegers = readline();
+$arrayOfIntegers = [];
 for ($i = 1; $i <= $numberOfIntegers; $i++) {
     $arrayOfIntegers[$i] = readline();
 }
