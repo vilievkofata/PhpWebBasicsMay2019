@@ -1,0 +1,11 @@
+POST https://api.github.com/repos/SoftUni-Tech-Module/TestRepository/issues
+Content-Type: application/json
+Authorization: Basic dmlsaWV2a29mYXRhOlBlcnNvbmFsIE5vOiAwMzUyMDU2ODgx
+
+{
+  "title": "Cooler buttons",
+  "body": "Pesho wants cooler buttons!",
+  "labels": ["enchancement", "major"]
+}
+
+###
