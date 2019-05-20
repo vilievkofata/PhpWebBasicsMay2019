@@ -22,9 +22,10 @@
     <input id="names" name="names" type="text"><br>
     <label for="ages">Ages:</label>
     <input id="ages" name="ages" type="text"><br>
+    <input name="page" type="hidden" value="0">
     <input name="filter" type="submit" value="Filter!">
 </form>
-<?php if (isset($name, $age)): ?>
+<?php if (isset($_SESSION['name'], $_SESSION['age'])): ?>
     <table>
         <thead>
         <tr>
@@ -33,16 +34,16 @@
         </tr>
         </thead>
         <tbody>
-        <?php for ($i = $page * 5; $i < $page * 5 + 5; $i++): ?>
+        <?php for ($i = $_SESSION['page'] * 5; $i < $_SESSION['name'] * 5 + 5; $i++): ?>
             <tr>
-                <td><?php echo $name[$i]; ?></td>
-                <td><?php echo $age[$i]; ?></td>
+                <td><?php echo $_SESSION['name'][$i]; ?></td>
+                <td><?php echo $_SESSION['age'][$i]; ?></td>
             </tr>
         <?php endfor; ?>
         </tbody>
     </table>
+    <a href="paginate_students.php?page=<?php echo $_SESSION['page']--; ?>">Previous</a>
+    <a href="paginate_students.php?page=<?php echo $_SESSION['page']++; ?>">Next</a>
 <?php endif; ?>
-<a href="paginate_students.php?page=<?php echo $page--; ?>" target="_parent">Previous</a>
-<a href="paginate_students.php?page=<?php echo $page++; ?>">Next</a>
 </body>
 </html>
