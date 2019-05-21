@@ -1,8 +1,17 @@
-<?php include 'PaginateStudents.php'; ?>
-<?php $name = $_SESSION['name']; ?>
-<?php $age = $_SESSION['age']; ?>
-<?php $page = $_SESSION['page']; ?>
 <!DOCTYPE html>
+<?php include 'PaginateStudents.php'; ?>
+<?php
+
+if (isset($_SESSION['name'])) {
+    $name = $_SESSION['name'];
+}
+if (isset($_SESSION['age'])) {
+    $age = $_SESSION['age'];
+}
+if (isset($_SESSION['page'])) {
+    $page = $_SESSION['page'];
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
