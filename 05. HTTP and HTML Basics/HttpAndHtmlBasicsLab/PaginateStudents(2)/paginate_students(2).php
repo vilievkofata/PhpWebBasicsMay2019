@@ -1,4 +1,4 @@
-<?php include 'PaginateStudents.php'; ?>
+<?php include 'PaginateStudents(2).php'; ?>
 <?php $name = $_SESSION['name']; ?>
 <?php $age = $_SESSION['age']; ?>
 <?php $page = $_SESSION['page']; ?>
@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Paginate Students</title>
+    <title>Paginate Students (2)</title>
     <style>
         table, td, th {
             border: 1px solid;
@@ -50,10 +50,10 @@
         </tbody>
     </table>
     <?php if ($page * 5 >= 5): ?>
-        <a href="paginate_students.php?page=<?php echo $page - 1; ?>">Previous</a>
+        <a href="paginate_students(2).php?page=<?php echo $page - 1; ?>">Previous</a>
     <?php endif; ?>
     <?php if ($page * 5 + 5 < count($name)): ?>
-        <a href="paginate_students.php?page=<?php echo $page + 1; ?>">Next</a>
+        <a href="paginate_students(2).php?page=<?php echo $page + 1; ?>">Next</a>
     <?php endif; ?>
 <?php endif; ?>
 </body>
