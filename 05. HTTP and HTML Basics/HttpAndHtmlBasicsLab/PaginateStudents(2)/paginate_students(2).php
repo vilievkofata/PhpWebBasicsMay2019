@@ -11,6 +11,10 @@
         table, td, th {
             border: 1px solid;
         }
+        a {
+            color: green;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -50,10 +54,10 @@
         </tbody>
     </table>
     <?php if ($page * 5 >= 5): ?>
-        <a href="paginate_students(2).php?page=<?php echo $page - 1; ?>">Previous</a>
+        <a href="paginate_students(2).php?page=<?php echo $page - 1; ?>">[Previous]</a>
     <?php endif; ?>
     <?php if ($page * 5 + 5 < count($name)): ?>
-        <a href="paginate_students(2).php?page=<?php echo $page + 1; ?>">Next</a>
+        <a href="paginate_students(2).php?page=<?php echo $page + 1; ?>">[Next]</a>
     <?php endif; ?>
 <?php endif; ?>
 </body>
