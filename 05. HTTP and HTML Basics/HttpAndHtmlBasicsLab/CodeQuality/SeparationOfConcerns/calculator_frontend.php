@@ -1,5 +1,5 @@
-<?php include 'Calculator.php'; ?>
 <!DOCTYPE html>
+<?php include 'Calculator.php'; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
