@@ -1,5 +1,5 @@
-<?php include 'RenderStudentsInfo.php'; ?>
 <!DOCTYPE html>
+<?php include 'RenderStudentsInfo.php'; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

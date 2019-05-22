@@ -13,12 +13,12 @@
         <option value="subtract">Subtract</option>
     </select><br>
     <label for="number_one">Number 1:</label>
-    <input id="number_one" name="number_one" type="text"><br>
+    <input id="number_one" name="number_one" type="number"><br>
     <label for="number_two">Number 2:</label>
-    <input id="number_two" name="number_two" type="text"><br>
+    <input id="number_two" name="number_two" type="number"><br>
     <?php if (isset($output)): ?>
         <label for="result">Result:</label>
-        <input disabled="disabled" id="result" readonly="readonly" type="text"
+        <input disabled="disabled" id="result" readonly="readonly" type="number"
                value="<?php echo $output; ?>"><br>
     <?php endif; ?>
     <input name="calculate" type="submit" value="Calculate!">

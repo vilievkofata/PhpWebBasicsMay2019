@@ -1,5 +1,5 @@
-<?php include 'FilterLegalStudents.php'; ?>
 <!DOCTYPE html>
+<?php include 'FilterLegalStudents.php'; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

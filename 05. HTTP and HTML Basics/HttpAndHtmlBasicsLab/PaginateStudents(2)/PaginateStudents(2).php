@@ -8,6 +8,7 @@ if (isset($_POST['filter'])) {
     $ages = $_POST['ages'];
     $_SESSION['name'] = explode($delimiter, $names);
     $_SESSION['age'] = explode($delimiter, $ages);
+    $_SESSION['possible_pages'] = floor(count($_SESSION['name']) / 5);
     $_SESSION['page'] = $_POST['page'];
 } else {
     if (isset($_GET['page'])) {

@@ -1,8 +1,20 @@
-<?php include 'PaginateStudents(2).php'; ?>
-<?php $name = $_SESSION['name']; ?>
-<?php $age = $_SESSION['age']; ?>
-<?php $page = $_SESSION['page']; ?>
 <!DOCTYPE html>
+<?php include 'PaginateStudents(2).php'; ?>
+<?php
+
+if (isset($_SESSION['name'])) {
+    $name = $_SESSION['name'];
+}
+if (isset($_SESSION['age'])) {
+    $age = $_SESSION['age'];
+}
+if (isset($_SESSION['possible_pages'])) {
+    $possiblePages = $_SESSION['possible_pages'];
+}
+if (isset($_SESSION['page'])) {
+    $page = $_SESSION['page'];
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,22 +53,30 @@
         </tr>
         </thead>
         <tbody>
-        <?php for (
-                $i = $page * 5;
-                $i < $page * 5 + 5 and $i < count($name);
-                $i++
-        ): ?>
-            <tr>
-                <td><?php echo $name[$i]; ?></td>
-                <td><?php echo $age[$i]; ?></td>
-            </tr>
+        <?php for ($i = $page * 5; $i < $page * 5 + 5; $i++): ?>
+            <?php if (isset($name[$i]) and isset($age[$i])): ?>
+                <tr>
+                    <td><?php echo $name[$i]; ?></td>
+                    <td><?php echo $age[$i]; ?></td>
+                </tr>
+            <?php endif; ?>
         <?php endfor; ?>
         </tbody>
     </table>
-    <?php if ($page * 5 >= 5): ?>
-        <a href="paginate_students(2).php?page=<?php echo $page - 1; ?>">[Previous]</a>
+    <?php if (0 < $page and $page <= $possiblePages): ?>
+        <a href="paginate_students(2).php?page=<?php echo $page - 1; ?>">
+            [Previous]</a>
     <?php endif; ?>
-    <?php if ($page * 5 + 5 < count($name)): ?>
+    <?php if (true): ?>
+        <a href="paginate_students(2).php?page=<?php echo $page - 1; ?>">[<?php echo $page - 1; ?>]</a>
+    <?php endif; ?>
+    <?php if (true): ?>
+        <a href="paginate_students(2).php?page=<?php echo $page; ?>">[<?php echo $page; ?>]</a>
+    <?php endif; ?>
+    <?php if (true): ?>
+        <a href="paginate_students(2).php?page=<?php echo $page + 1; ?>">[<?php echo $page + 1; ?>]</a>
+    <?php endif; ?>
+    <?php if (0 <= $page and $page < $possiblePages): ?>
         <a href="paginate_students(2).php?page=<?php echo $page + 1; ?>">[Next]</a>
     <?php endif; ?>
 <?php endif; ?>
