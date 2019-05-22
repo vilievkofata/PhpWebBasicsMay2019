@@ -67,17 +67,12 @@ if (isset($_SESSION['page'])) {
         <a href="paginate_students(2).php?page=<?php echo $page - 1; ?>">
             [Previous]</a>
     <?php endif; ?>
-    <?php if (true): ?>
-        <a href="paginate_students(2).php?page=<?php echo $page - 1; ?>">[<?php echo $page - 1; ?>]</a>
-    <?php endif; ?>
-    <?php if (true): ?>
-        <a href="paginate_students(2).php?page=<?php echo $page; ?>">[<?php echo $page; ?>]</a>
-    <?php endif; ?>
-    <?php if (true): ?>
-        <a href="paginate_students(2).php?page=<?php echo $page + 1; ?>">[<?php echo $page + 1; ?>]</a>
-    <?php endif; ?>
+    <!--TODO-->
+    <!--TODO-->
+    <!--TODO-->
     <?php if (0 <= $page and $page < $possiblePages): ?>
-        <a href="paginate_students(2).php?page=<?php echo $page + 1; ?>">[Next]</a>
+        <a href="paginate_students(2).php?page=<?php echo $page + 1; ?>">
+            [Next]</a>
     <?php endif; ?>
 <?php endif; ?>
 </body>

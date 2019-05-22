@@ -1,0 +1,6 @@
+PUT https://testapp-2a1ac.firebaseio.com/Books/7/author.json
+Content-Type: application/json
+
+"New author was assigned"
+
+###

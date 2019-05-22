@@ -1,0 +1,9 @@
+PATCH https://testapp-2a1ac.firebaseio.com/Books/7/.json
+Content-Type: application/json
+
+{
+  "year": 1981,
+  "author": "Author Changed"
+}
+
+###
