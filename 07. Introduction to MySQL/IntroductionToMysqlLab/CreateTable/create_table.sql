@@ -1,9 +1,12 @@
 USE softuni;
-CREATE TABLE students (
-    first_name VARCHAR(255),
-    last_name VARCHAR(255),
-    number INTEGER AUTO_INCREMENT PRIMARY KEY,
-    phone BIGINT,
-    record_date TIMESTAMP,
-    is_active BOOLEAN
+CREATE TABLE students
+(
+    first_name  VARCHAR(255) NOT NULL,
+    last_name   VARCHAR(255) NOT NULL,
+    number      INT AUTO_INCREMENT,
+    phone       BIGINT       NOT NULL,
+    record_date TIMESTAMP    NOT NULL,
+    is_active   BOOLEAN      NOT NULL,
+    CONSTRAINT students_pk
+        PRIMARY KEY (number)
 );
