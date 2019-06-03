@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <div class="wrapper">
+        <form class="competitor-create" action="{{ path('edit', { id: competitor.id }) }}" method="post">
+            <div class="create-header">
+                Edit Competitor
+            </div>
+            <div class="create-competitoritem">
+                <div class="create-competitoritem-label">Name</div>
+                <input type="text" class="create-competitoritem-content" name="competitor[name]" required
+                       value="{{ competitor.name }}"/>
+            </div>
+            <div class="create-competitoritem">
+                <div class="create-competitoritem-label">Age</div>
+                <input type="number" min="1" class="create-competitoritem-content" name="competitor[age]" required
+                       value="{{ competitor.age }}"/>
+            </div>
+
+            <div class="create-competitoritem">
+                <div class="create-competitoritem-label">Team</div>
+                <input class="create-competitoritem-content" name="competitor[team]"
+                       value="{{ competitor.team }}" required/>
+            </div>
+
+            <div class="create-competitoritem">
+                <div class="create-competitoritem-label">Category</div>
+
+                {% if competitor.category is same as("Superbike and Senior TT Races") %}
+                    <select class="create-competitoritem-content" name="competitor[category]" id="category">
+                        <option selected value="Superbike and Senior TT Races">Superbike and Senior TT Races</option>
+                        <option value="Sidecar TT Races">Sidecar TT Races</option>
+                        <option value="Superstock TT Race">Superstock TT Race</option>
+                    </select>
+                {% elseif competitor.category is same as("Sidecar TT Races") %}
+                    <select class="create-competitoritem-content" name="competitor[category]" id="category">
+                        <option value="Superbike and Senior TT Races">Superbike and Senior TT Races</option>
+                        <option selected value="Sidecar TT Races">Sidecar TT Races</option>
+                        <option value="Superstock TT Race">Superstock TT Race</option>
+                    </select>
+
+                {% else %}
+                    <select class="create-competitoritem-content" name="competitor[category]" id="category">
+                        <option value="Superbike and Senior TT Races">Superbike and Senior TT Races</option>
+                        <option value="Sidecar TT Races">Sidecar TT Races</option>
+                        <option selected value="Superstock TT Race">Superstock TT Race</option>
+                    </select>
+                {% endif %}
+            </div>
+
+            <div class="create-button-holder">
+                <button type="submit" class="button">Edit</button>
+                <a type="button" href="{{ path('homepage') }}" class="button">Back</a>
+            </div>
+            {{ form_row(form._token) }}
+        </form>
+    </div>
+{% endblock %}
+

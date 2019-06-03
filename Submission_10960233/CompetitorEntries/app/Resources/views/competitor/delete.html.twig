@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <div class="wrapper">
+        <form class="competitor-create" action="{{ path('delete', { id:competitor.id }) }}" method="post">
+            <div class="create-header">
+                Remove Competitor
+            </div>
+            <div class="create-competitoritem">
+                <div class="create-competitoritem-label">Name</div>
+                <input type="text" class="create-competitoritem-content" name="competitor[name]" required disabled
+                       value="{{ competitor.name }}"/>
+            </div>
+            <div class="create-competitoritem">
+                <div class="create-competitoritem-label">Age</div>
+                <input type="number" min="1" class="create-competitoritem-content" name="competitor[age]" required
+                       disabled
+                       value="{{ competitor.age }}"/>
+            </div>
+
+            <div class="create-competitoritem">
+                <div class="create-competitoritem-label">Team</div>
+                <input class="create-competitoritem-content" name="competitor[team]"
+                       value="{{ competitor.team }}" required disabled/>
+            </div>
+
+            <div class="create-competitoritem">
+                <div class="create-competitoritem-label">Category</div>
+                <input class="create-competitoritem-content" name="competitor[category]"
+                       value="{{ competitor.category }}" disabled>
+            </div>
+
+            <div class="create-button-holder">
+                <button type="submit" class="button">Remove</button>
+                <a type="button" href="{{ path('homepage') }}" class="button">Back</a>
+            </div>
+            {{ form_row(form._token) }}
+        </form>
+    </div>
+{% endblock %}

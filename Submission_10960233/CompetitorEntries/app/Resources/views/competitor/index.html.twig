@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <div class="wrapper">
+        <h1>Competitor Entries Now Open!</h1>
+
+        <div class="button-holder">
+            <a type="button" href="{{ path('create') }}" class="button">Race Entry</a>
+        </div>
+        <div class="content">
+            <div class="header">
+                <div class="competitor-label">Name</div>
+                <div class="competitor-label">Team</div>
+                <div class="competitor-label">Category</div>
+                <div class="actions-label">Actions</div>
+            </div>
+            <div class="main">
+                {% for competitor in competitors %}
+                    <div class="competitor">
+                        <div class="competitor-item">
+                            {{ competitor.name }}
+                        </div>
+                        <div class="competitor-item">
+                            {{ competitor.team }}
+                        </div>
+                        <div class="competitor-item">
+                            {{ competitor.category }}
+                        </div>
+                        <div class="competitor-item competitor-actions">
+                            <a type="button" href="{{ path('edit', {id: competitor.id}) }}" class="competitorbutton">Edit</a>
+                            <a type="button" href="{{ path('delete', {id: competitor.id}) }}" class="competitorbutton">Remove</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
