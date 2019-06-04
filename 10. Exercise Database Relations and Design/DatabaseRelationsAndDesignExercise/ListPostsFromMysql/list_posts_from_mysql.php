@@ -7,7 +7,6 @@
 <body>
 <?php
 
-
 $mysqli = new mysqli('localhost', 'root', '', 'blog');
 if ($mysqli->connect_error) {
     die($mysqli->connect_error);

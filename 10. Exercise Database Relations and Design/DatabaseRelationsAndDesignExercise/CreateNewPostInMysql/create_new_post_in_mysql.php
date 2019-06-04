@@ -14,17 +14,20 @@
 </form>
 <?php
 
+$mysqli = new mysqli('localhost', 'root', '', 'blog');
+if ($mysqli->connect_error) {
+    die($mysqli->connect_error);
+}
 if (isset($_GET['title'])) {
     $title = $_GET['title'];
     $content = $_GET['content'];
-    $mysqli = new mysqli('localhost', 'root', '', 'blog');
-    if ($mysqli->connect_error) {
-        die($mysqli->connect_error);
-    }
     try {
         $mysqli->begin_transaction();
         $query = $mysqli->prepare('INSERT INTO posts (title, content)
 VALUES (?, ?);');
+        if ($mysqli->error) {
+            throw new mysqli_sql_exception($mysqli->error);
+        }
         $query->bind_param('ss', $title, $content);
         $query->execute();
         if ($mysqli->affected_rows == 1) {

@@ -12,15 +12,18 @@
 </form>
 <?php
 
+$mysqli = new mysqli('localhost', 'root', '', 'blog');
+if ($mysqli->connect_error) {
+    die($mysqli->connect_error);
+}
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $mysqli = new mysqli('localhost', 'root', '', 'blog');
-    if ($mysqli->connect_error) {
-        die($mysqli->connect_error);
-    }
     try {
         $mysqli->begin_transaction();
         $query = $mysqli->prepare('DELETE FROM posts WHERE id = ?;');
+        if ($mysqli->error) {
+            throw new mysqli_sql_exception($mysqli->error);
+        }
         $query->bind_param('i', $id);
         $query->execute();
         if ($mysqli->affected_rows == 1) {
