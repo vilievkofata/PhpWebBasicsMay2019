@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <div class="wrapper">
+        <main>
+            <form class="animal-create" action="{{ path('delete', { id:animal.id }) }}" method="post">
+                <div class="create-header">
+                    Remove Animal
+                </div>
+                <div class="create-animal-item">
+                    <div class="create-animal-item-label">Kind</div>
+                    <input type="text" class="create-animal-item-content" name="animal[kind]" required disabled
+                           value="{{ animal.kind }}"/>
+                </div>
+                <div class="create-animal-item">
+                    <div class="create-animal-item-label">Chip Number</div>
+                    <input type="number" min="1" class="create-animal-item-content" name="animal[chipNumber]" required
+                           disabled
+                           value="{{ animal.chipNumber }}"/>
+                </div>
+
+                <div class="create-animal-item">
+                    <div class="create-animal-item-label">Gender</div>
+
+                    {% if animal.gender is same as("Male") %}
+                        <div class="gender-select">
+                            <div class="radio-div">
+                                <input class="radio-input" type="radio" name="animal[gender]" value="Male" id="male"
+                                       checked disabled>
+                                <label class="radio-label" for="male">Male</label>
+                            </div>
+                            <div class="radio-div">
+                                <input class="radio-input" type="radio" name="animal[gender]" value="Female" id="female"
+                                       disabled>
+                                <label class="radio-label" for="female">Female</label>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="gender-select">
+                            <div class="radio-div">
+                                <input class="radio-input" type="radio" name="animal[gender]" value="Male" id="male2"
+                                       disabled>
+                                <label class="radio-label" for="male2">Male</label>
+                            </div>
+                            <div class="radio-div">
+                                <input class="radio-input" type="radio" name="animal[gender]" value="Female"
+                                       id="female2" checked disabled>
+                                <label class="radio-label" for="female2">Female</label>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="create-button-holder">
+                    <button type="submit" class="button">Remove Animal</button>
+                    <a type="button" href="{{ path('homepage') }}" class="button">Back</a>
+                </div>
+                {{ form_row(form._token) }}
+            </form>
+        </main>
+    </div>
+{% endblock %}

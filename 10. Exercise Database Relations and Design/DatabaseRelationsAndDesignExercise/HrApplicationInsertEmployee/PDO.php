@@ -8,3 +8,6 @@ try {
 } catch (PDOException $exception) {
     echo $exception->getMessage();
 }
+
+
+$db = new Database($pdo);

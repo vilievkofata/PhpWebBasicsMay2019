@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <div class="wrapper">
+        <main>
+            <h1>Wildlife Refuge Database</h1>
+
+            <div class="button-holder">
+                <a type="button" href="{{ path('create') }}" class="button">Register a New Animal</a>
+            </div>
+            <div class="content">
+                <div class="header">
+                    <div class="animal-label">Chip Number</div>
+                    <div class="animal-label">Kind</div>
+                    <div class="animal-label">Gender</div>
+                    <div class="actions-label">Actions</div>
+                </div>
+                <div class="main">
+                    {% for animal in animals %}
+                        <div class="animal">
+                            <div class="animal-item">
+                                {{ animal.chipNumber }}
+                            </div>
+                            <div class="animal-item">
+                                {{ animal.kind }}
+                            </div>
+                            <div class="animal-item">
+                                {{ animal.gender }}
+                            </div>
+                            <div class="animal-item animal-actions">
+                                <a type="button" href="{{ path('edit', {id: animal.id}) }}"
+                                   class="animal-button">Edit</a>
+                                <a type="button" href="{{ path('delete', {id: animal.id}) }}" class="animal-button">Remove</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
